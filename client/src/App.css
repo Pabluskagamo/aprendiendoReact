@@ -98,3 +98,12 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+.divBorrar{
+  display: flex;
+}
+
+.borrarButton{
+  width: 10%;
+  height: 10%;
+}

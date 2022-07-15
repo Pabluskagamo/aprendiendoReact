@@ -7,6 +7,14 @@ import axios from 'axios';
 const Note = (props)=>{
   const note = props.nota;
 
+  const handleDelete = () =>{
+    axios.delete('/notes/'+ note.id)
+      .then((response)=>{
+        console.log(response)
+        window.location.reload(false);
+      })
+  }
+
   return(
     <li>
       <div className="card" style={{width: "50rem"}}>
@@ -15,6 +23,7 @@ const Note = (props)=>{
           <p className="card-text">{note.texto}</p>
           <time>{note.date}</time>
           <p style={note.important ? {color: "green"} :{}}>Importante: {note.important ? 'Si': 'No'}</p>
+          <button onClick={handleDelete} type="button" className="btn btn-danger borrarButton">Borrar</button>
         </div>
     </div>
     </li>
@@ -70,7 +79,7 @@ function App() {
   return (
     <div className="App">
       <h3>Esta es mi primera aplicacion con React.js</h3>
-      <p>Notas recientes:</p>
+      <p>Notas:</p>
       <div className="Notes">
         <ol>
           {notes.map((note) => { 

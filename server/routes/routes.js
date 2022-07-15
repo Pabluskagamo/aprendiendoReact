@@ -10,6 +10,8 @@ router.get('/', (req, res)=> {
 
 router.get('/notes', notesService.getAllNotes);
 
-router.post('/notes', notesService.createNote)
+router.post('/notes', notesService.createNote);
+
+router.delete('/notes/:id', notesService.deleteNote);
 
 module.exports = router;
